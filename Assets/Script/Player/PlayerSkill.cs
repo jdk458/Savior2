@@ -11,6 +11,10 @@ public class PlayerSkill : MonoBehaviour
     public GameObject[] waterSkill;
     public GameObject[] fireSkill;
     public GameObject[] lightSkill;
+    [Header("스킬 사운드")]
+    public AudioSource[] fireSkillSound;
+    public AudioSource[] lightSkillSound;
+    public AudioSource[] waterSkillSound;
     [Header("스킬구슬 위치")]
     public Transform skillMable;
 
@@ -219,6 +223,9 @@ public class PlayerSkill : MonoBehaviour
                 List<GameObject> enemy = new List<GameObject>();
                 enemy.Add(enemy_list[enemy_index].transform.gameObject);
                 water00_obj.GetComponent<ActiveSkill>().SkillCall(enemy, (int)(GetComponent<PlayerController>().skill_lv_atk * waterSkill[0].GetComponent<ActiveSkill>().lvOfDamage));
+
+                GameManager.instance.audioManager.EnvironVolume_Play(waterSkillSound[0]);
+            
             }
 
         }
@@ -282,6 +289,7 @@ public class PlayerSkill : MonoBehaviour
                 List<GameObject> enemy = new List<GameObject>();
                 enemy.Add(enemy_list[enemy_index].transform.gameObject);
                 skillAactive.GetComponent<ActiveSkill>().SkillCall(enemy, (int)(GetComponent<PlayerController>().skill_lv_atk * waterSkill[1].GetComponent<ActiveSkill>().lvOfDamage));
+                GameManager.instance.audioManager.EnvironVolume_Play(waterSkillSound[1]);
             }
 
         }
@@ -309,6 +317,8 @@ public class PlayerSkill : MonoBehaviour
             StartCoroutine(Water03_Flag_Coroutine());
 
             StartCoroutine(Water03_Coroutine());
+
+            GameManager.instance.audioManager.EnvironVolume_Play(waterSkillSound[2]);
         }
 
         Invoke("Water03", 0.5f);
@@ -409,6 +419,7 @@ public class PlayerSkill : MonoBehaviour
 
                 GameObject skillAactive = Instantiate(waterSkill[3], target_pos, Quaternion.identity);
                 skillAactive.GetComponent<ActiveSkill>().playerInfo = this.GetComponent<PlayerController>();
+                GameManager.instance.audioManager.EnvironVolume_Play(waterSkillSound[3]);
             }
 
         }
@@ -450,6 +461,7 @@ public class PlayerSkill : MonoBehaviour
             activeSkill.GetComponent<ActiveSkill>().UpdatePosSet(GetComponent<PlayerController>().theCam);
             if (enemy_list.Count > 0)
                 activeSkill.GetComponent<ActiveSkill>().SkillCall(enemy_list, (int)(GetComponent<PlayerController>().skill_lv_atk * waterSkill[4].GetComponent<ActiveSkill>().lvOfDamage));
+            GameManager.instance.audioManager.EnvironVolume_Play(waterSkillSound[4]);
         }
 
         Invoke("Water05", 0.5f);
@@ -511,6 +523,7 @@ public class PlayerSkill : MonoBehaviour
                 List<GameObject> enemy = new List<GameObject>();
                 enemy.Add(enemy_list[enemy_index].transform.gameObject);
                 fire00_obj.GetComponent<ActiveSkill>().SkillCall(enemy, (int)(GetComponent<PlayerController>().skill_lv_atk * fireSkill[0].GetComponent<ActiveSkill>().lvOfDamage));
+                GameManager.instance.audioManager.EnvironVolume_Play(fireSkillSound[0]);
             }
 
         }
@@ -574,6 +587,7 @@ public class PlayerSkill : MonoBehaviour
                 List<GameObject> enemy = new List<GameObject>();
                 enemy.Add(enemy_list[enemy_index].transform.gameObject);
                 skillAactive.GetComponent<ActiveSkill>().SkillCall(enemy, (int)(GetComponent<PlayerController>().skill_lv_atk * fireSkill[1].GetComponent<ActiveSkill>().lvOfDamage));
+                GameManager.instance.audioManager.EnvironVolume_Play(fireSkillSound[1]);
             }
 
         }
@@ -603,6 +617,8 @@ public class PlayerSkill : MonoBehaviour
             Vector2 currentPos = this.transform.position;
 
             Instantiate(fireSkill[2], currentPos, Quaternion.identity).GetComponent<ActiveSkill>().playerInfo = this.GetComponent<PlayerController>();
+
+            GameManager.instance.audioManager.EnvironVolume_Play(fireSkillSound[2]);
         }
 
         Invoke("Fire03", 0.5f);
@@ -707,6 +723,7 @@ public class PlayerSkill : MonoBehaviour
 
                 GameObject skillAactive = Instantiate(fireSkill[3], dir, quaternion);
                 skillAactive.GetComponent<ActiveSkill>().playerInfo = this.GetComponent<PlayerController>();
+                GameManager.instance.audioManager.EnvironVolume_Play(fireSkillSound[3]);
             }
 
         }
@@ -748,6 +765,7 @@ public class PlayerSkill : MonoBehaviour
             activeSkill.GetComponent<ActiveSkill>().UpdatePosSet(GetComponent<PlayerController>().theCam);
             if (enemy_list.Count > 0)
                 activeSkill.GetComponent<ActiveSkill>().SkillCall(enemy_list, (int)(GetComponent<PlayerController>().skill_lv_atk * fireSkill[4].GetComponent<ActiveSkill>().lvOfDamage));
+            GameManager.instance.audioManager.EnvironVolume_Play(fireSkillSound[4]);
         }
 
         Invoke("Fire05", 0.5f);
@@ -809,6 +827,7 @@ public class PlayerSkill : MonoBehaviour
                 List<GameObject> enemy = new List<GameObject>();
                 enemy.Add(enemy_list[enemy_index].transform.gameObject);
                 light00_obj.GetComponent<ActiveSkill>().SkillCall(enemy, (int)(GetComponent<PlayerController>().skill_lv_atk * lightSkill[0].GetComponent<ActiveSkill>().lvOfDamage));
+                GameManager.instance.audioManager.EnvironVolume_Play(lightSkillSound[0]);
             }
 
         }
@@ -872,6 +891,7 @@ public class PlayerSkill : MonoBehaviour
                 List<GameObject> enemy = new List<GameObject>();
                 enemy.Add(enemy_list[enemy_index].transform.gameObject);
                 skillAactive.GetComponent<ActiveSkill>().SkillCall(enemy, (int)(GetComponent<PlayerController>().skill_lv_atk * lightSkill[1].GetComponent<ActiveSkill>().lvOfDamage));
+                GameManager.instance.audioManager.EnvironVolume_Play(lightSkillSound[1]);
             }
 
         }
@@ -899,6 +919,8 @@ public class PlayerSkill : MonoBehaviour
             StartCoroutine(Light03_Flag_Coroutine());
 
             StartCoroutine(Light03_Coroutine());
+
+            GameManager.instance.audioManager.EnvironVolume_Play(lightSkillSound[2]);
         }
 
         Invoke("Light03", 0.5f);
@@ -942,6 +964,8 @@ public class PlayerSkill : MonoBehaviour
             Instantiate(lightSkill[2], activeSkillPos[i], Quaternion.identity).GetComponent<ActiveSkill>().playerInfo = this.GetComponent<PlayerController>();
             yield return new WaitForSeconds(time);
         }
+
+        GameManager.instance.audioManager.EnvironVolume_Play(lightSkillSound[2]);
     }
 
 
@@ -993,6 +1017,8 @@ public class PlayerSkill : MonoBehaviour
 
                 GameObject skillAactive = Instantiate(lightSkill[3], target_pos, Quaternion.identity);
                 skillAactive.GetComponent<ActiveSkill>().playerInfo = this.GetComponent<PlayerController>();
+
+                GameManager.instance.audioManager.EnvironVolume_Play(lightSkillSound[3]);
             }
 
         }
@@ -1034,6 +1060,7 @@ public class PlayerSkill : MonoBehaviour
             activeSkill.GetComponent<ActiveSkill>().UpdatePosSet(GetComponent<PlayerController>().theCam);
             if (enemy_list.Count > 0)
                 activeSkill.GetComponent<ActiveSkill>().SkillCall(enemy_list, (int)(GetComponent<PlayerController>().skill_lv_atk * lightSkill[4].GetComponent<ActiveSkill>().lvOfDamage));
+            GameManager.instance.audioManager.EnvironVolume_Play(lightSkillSound[4]);
         }
 
         Invoke("Light05", 0.5f);

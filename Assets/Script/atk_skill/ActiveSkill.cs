@@ -13,7 +13,6 @@ public class ActiveSkill : MonoBehaviour
 
     [HideInInspector] public PlayerController playerInfo;
 
-
     public void SkillCall(List<GameObject> target, int atk)
     {
         for (int i = 0; i < target.Count; i++)
