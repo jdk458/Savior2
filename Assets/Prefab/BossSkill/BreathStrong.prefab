@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1758750925161527183}
   - component: {fileID: 1758750925161527180}
   - component: {fileID: 7456908847398009706}
+  - component: {fileID: 6284979497469447965}
   m_Layer: 0
   m_Name: BreathStrong
   m_TagString: Boss_Skill
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1758750925161527181}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -119,3 +120,22 @@ CircleCollider2D:
   m_Offset: {x: 0.05310464, y: -0.039828777}
   serializedVersion: 2
   m_Radius: 1.849468
+--- !u!114 &6284979497469447965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758750925161527181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77877ccb7a850354783caa44b8c27c49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillDamage: 15
+  randx: 0
+  randy: 0
+  target: {fileID: 0}
+  randomshot: 0
+  breathstrong: 0
+  phase1: 0

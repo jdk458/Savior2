@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8672472658057937711}
   - component: {fileID: 8672472658057937708}
   - component: {fileID: 6892377873976706218}
+  - component: {fileID: -6849949331528330164}
   m_Layer: 0
   m_Name: Claw
   m_TagString: Boss_Skill
@@ -129,3 +130,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.7166364, y: 2.340403}
   m_EdgeRadius: 0
+--- !u!114 &-6849949331528330164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8672472658057937709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77877ccb7a850354783caa44b8c27c49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillDamage: 10
+  randx: 0
+  randy: 0
+  target: {fileID: 0}
+  randomshot: 0
+  breathstrong: 0
+  phase1: 0

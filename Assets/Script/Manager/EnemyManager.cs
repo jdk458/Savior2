@@ -96,7 +96,8 @@ public class EnemyManager : MonoBehaviour
         int rand_pos_num = Random.RandomRange(0, enemy_spawn.childCount);
         enemy_obj.transform.position = enemy_spawn.GetChild(rand_pos_num).transform.position;
 
-        Invoke("Spawn", spawn_time);
+        if(!bossstage)
+            Invoke("Spawn", spawn_time);
     }
 
     public void NextStage()

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8873757695669723466}
   - component: {fileID: 8873757695669723465}
   - component: {fileID: 3952152654901738042}
+  - component: {fileID: -7606932501630557033}
   m_Layer: 0
   m_Name: BreathBall
   m_TagString: Boss_Skill
@@ -129,3 +130,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.4871507, y: 0.71522236}
   m_EdgeRadius: 0
+--- !u!114 &-7606932501630557033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8873757695669723464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77877ccb7a850354783caa44b8c27c49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillDamage: 20
+  randx: 0
+  randy: 0
+  target: {fileID: 0}
+  randomshot: 0
+  breathstrong: 0
+  phase1: 0

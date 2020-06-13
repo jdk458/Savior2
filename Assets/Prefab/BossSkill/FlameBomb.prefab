@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8086312997141093312}
   - component: {fileID: 8086312997141093315}
   - component: {fileID: 5201275127424594653}
+  - component: {fileID: -6054688646256146755}
   m_Layer: 0
   m_Name: FlameBomb
   m_TagString: Boss_Skill
@@ -119,3 +120,22 @@ CircleCollider2D:
   m_Offset: {x: -0.13276172, y: 0.13276196}
   serializedVersion: 2
   m_Radius: 1.9424012
+--- !u!114 &-6054688646256146755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8086312997141093314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77877ccb7a850354783caa44b8c27c49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillDamage: 25
+  randx: 0
+  randy: 0
+  target: {fileID: 0}
+  randomshot: 0
+  breathstrong: 0
+  phase1: 0

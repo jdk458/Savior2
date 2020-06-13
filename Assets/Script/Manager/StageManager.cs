@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -59,5 +60,13 @@ public class StageManager : MonoBehaviour
     {
         TimeManager.instance.SetTime(false);
         this.GetComponent<Animator>().SetBool("Next", false);
+        if (currentStageInt == 6)
+            CameraShake();
     }
+
+    private void CameraShake()
+    {
+        Camera.main.transform.DOShakePosition(2.0f,2);
+    }
+
 }

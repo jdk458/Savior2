@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8660412209402192044}
   - component: {fileID: 8660412209402192045}
   - component: {fileID: 8660412209402192046}
-  - component: {fileID: 6247515317242367555}
+  - component: {fileID: -7646391183320265561}
   m_Layer: 0
   m_Name: RandomShot
   m_TagString: Boss_Skill
@@ -103,29 +103,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &6247515317242367555
-BoxCollider2D:
+--- !u!114 &-7646391183320265561
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8660412209402192047}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.22237575, y: -0.033191204}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.0000005, y: 2.0009768}
-    newSize: {x: 5.000634, y: 2.812857}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.5728128, y: 0.44438505}
-  m_EdgeRadius: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77877ccb7a850354783caa44b8c27c49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillDamage: 0
+  randx: 0
+  randy: 0
+  target: {fileID: 0}
+  randomshot: 0
+  breathstrong: 0
+  phase1: 0

@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Boss : MonoBehaviour
 {
@@ -11,14 +13,21 @@ public class Boss : MonoBehaviour
     [Header("메인카메라")]
     public Transform main_cam;
 
-    [HideInInspector] public float Boss_hp;
+    [Header("카운트다운")]
+    public CountdownManager countdown;
 
-    string phase_num;
+    [Header("보스hp")]
+    public Image boss_hp;
+    public GameObject bosshpbar;
+
+    [HideInInspector] public float Boss_hp;
 
     float rigidTime;
     int atk;
     int hp;
     float speed;
+
+    string phase_num;
 
     bool attack_flag;
     bool hit_flag;
@@ -36,19 +45,15 @@ public class Boss : MonoBehaviour
         atk = GameManager.instance.monsterManager.GetMonster(name).atk;
         hp = GameManager.instance.monsterManager.GetMonster(name).hp;
         speed = GameManager.instance.monsterManager.GetMonster(name).speed;
-        Boss_hp = hp;
-
+        Boss_hp = 300000;
+        Boss_Skill.instance.phase_01 = true;
+        bosshpbar.SetActive(true);
         phase_num = "Phase_01";
+        countdown.time = 300;
 
         player_pos = player.transform.position;
-
-        CameraShake();
     }
 
-    private void CameraShake()
-    {
-        main_cam.transform.DOShakePosition(2.0f);
-    }
 
     private void FixedUpdate()
     {
@@ -58,7 +63,23 @@ public class Boss : MonoBehaviour
 
         main_cam.position = new Vector3(cam_x, cam_y, main_cam.position.z);
 
-        Move();
+
+        boss_hp.fillAmount = (float)Boss_hp / 3000;
+        if (countdown.remainTime > 0 && Boss_hp <= 0)
+            Victory();
+        else if (countdown.remainTime <= 0)
+            GameOver();
+        //Move();
+    }
+
+    void GameOver()
+    {
+
+    }
+
+    void Victory()
+    {
+        SceneManager.LoadScene("MainScene");
     }
 
     public void Move()
@@ -76,10 +97,16 @@ public class Boss : MonoBehaviour
                     this.transform.rotation = Quaternion.Euler(0, 180, 0);
                 else
                     this.transform.rotation = Quaternion.Euler(0, 0, 0);
-            }
 
+                StartCoroutine("Attack_flag_Couroutine");
+            }
+            if (attack_flag)
+            {
+                Invoke(phase_num,0.1f);
+            }
             else
             {
+                StartCoroutine("Move_flag_Couroutine");
                 //보스 idle 애니메이션 적용
             }
 
@@ -93,43 +120,70 @@ public class Boss : MonoBehaviour
         }
 
     }
+
+    IEnumerator Move_flag_Couroutine()
+    {
+        move_flag = true;
+        yield return new WaitForSeconds(5);
+        move_flag = false;
+    }
+
+    IEnumerator Attack_flag_Couroutine()
+    {
+        attack_flag = true;
+        yield return new WaitForSeconds(5);
+        attack_flag = false;
+    }
+
     public void Phase_01()
     {
+        if (TimeManager.instance.GetTime())
+        {
+            return;
+        }
         int range = Random.Range(0, 100);
         if (range < 35)
             //보스 브레스 애니메이션 동작
-            ;
+            Boss_Skill.instance.Breath();
         else if (35 <= range && range < 70)
             //보스 플레임 애니메이션 동작
-            ;
+            Boss_Skill.instance.Flame();
         else
             //보스 할퀴기 동작
-            ;
+            Boss_Skill.instance.Claw();
         if(Boss_hp <= 70)
         {
             //보스 화염탄 난사 애니메이션 동작
+            Boss_Skill.instance.RandomShot();
+            Boss_Skill.instance.phase_01 = false;
             phase_num = "Phase_02";
         }
     }
 
     public void Phase_02()
     {
+        if (TimeManager.instance.GetTime())
+        {
+            return;
+        }
         int range = Random.Range(0, 100);
         if (range < 30)
             //보스 브레스탄 애니메이션 동작
-            ;
+            Boss_Skill.instance.BreathBall();
         else if (30 <= range && range < 60)
             //보스 화염폭발 애니메이션 동작
-            ;
+            Boss_Skill.instance.FlameBomb();
         else if (60 <= range && range < 80)
             //보스 꼬리치기 동작
-            ;
+            Boss_Skill.instance.Spin();
         else
             //플레임 동작
-            ;
+            Boss_Skill.instance.Flame();
         if (Boss_hp <= 30)
         {
             //보스 화염탄 난사 애니메이션 동작
+            Boss_Skill.instance.RandomShot();
+            Boss_Skill.instance.phase_01 = false;
             phase_num = "Phase_03";
         }
 
@@ -137,22 +191,29 @@ public class Boss : MonoBehaviour
 
     public void Phase_03()
     {
+        if (TimeManager.instance.GetTime())
+        {
+            return;
+        }
         int range = Random.Range(0, 100);
         if (range < 20)
             //보스 플레임 강화 애니메이션 동작
-            ;
+            Boss_Skill.instance.FlameStrong();
         else if (20 <= range && range < 45)
             //보스 불타는 대지 애니메이션 동작
-            ;
+            Boss_Skill.instance.BurningGround();
         else if (45 <= range && range < 70)
             //보스 브레스 강화 동작
-            ;
+            Boss_Skill.instance.BreathStrong();
         else if (70 <= range && range < 80)
+        {
             //보스 화염탄 난사 동작
-            ;
+            Boss_Skill.instance.RandomShot();
+            Boss_Skill.instance.phase_01 = false;
+        }
         else
             //꼬리치기 강화 동작
-            ;
+            Boss_Skill.instance.SpinStrong();
     }
 
 }

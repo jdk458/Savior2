@@ -548,10 +548,6 @@ public class PlayerController : MonoBehaviour
             skill_item_btn.SetActive(true);
             skill_item_obj = collision.gameObject;
         }
-        if (collision.transform.tag.Contains("Boss_Skill"))
-        {
-            Hit(collision.GetComponent<Boss_Skill>().attack, collision.gameObject);
-        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
