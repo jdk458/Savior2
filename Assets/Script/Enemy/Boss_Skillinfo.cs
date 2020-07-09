@@ -59,7 +59,10 @@ public class Boss_Skillinfo : MonoBehaviour
         if (randomshot)
         {
             this.transform.position = Vector3.MoveTowards(transform.position, pos, 0.3f);
-            this.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 60));
+            if (target.position.x - this.transform.position.x > 0)
+                this.transform.rotation = Quaternion.Euler(0,180,60);
+            else
+                this.transform.rotation = Quaternion.Euler(0, 0, 60);
         }
         if (breathstrong)
         {

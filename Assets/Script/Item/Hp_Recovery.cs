@@ -25,9 +25,6 @@ public class Hp_Recovery : MonoBehaviour
                 case 4:
                     Boss_Hpmarble.instance.place4 = false;
                     break;
-                case 5:
-                    Boss_Hpmarble.instance.place5 = false;
-                    break;
                 default:
                     break;
             }
