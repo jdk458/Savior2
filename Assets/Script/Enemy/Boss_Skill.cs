@@ -27,8 +27,6 @@ public class Boss_Skill : MonoBehaviour
     public Transform burningground;
     public Transform breathpos;
 
-    [Header("랜덤샷탄환갯수")]
-    public int num;
 
     Vector3 min;
     Vector3 max;
@@ -72,27 +70,23 @@ public class Boss_Skill : MonoBehaviour
             claw.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
-    public void RandomShot()
+    public void RandomShot(Vector3[] pos)
     {
         //화염탄 난사
+        int num;
         if (phase_01)
-            num = 5;
+            num = 10;
         else
-            num = 8;
-        for (int i = 0; i < num; i++)
+            num = 15;
+        for(int i = 0; i<num; i++)
         {
             GameObject randomskill = Instantiate(phase1[3], randshot.position, Quaternion.identity);
-            if (isreflect)
-                randomskill.transform.rotation = Quaternion.Euler(0, 180, 0);
-            else
-                randomskill.transform.rotation = Quaternion.Euler(0, 0, 0);
             randomskill.GetComponent<Boss_Skillinfo>().randomshot = true;
-            float randx = Random.Range(player.position.x-4, player.position.x+4);
-            float randy = Random.Range(player.position.y-8,player.position.y+8);
-            Vector3 pos = new Vector3(randx, randy);
-            randomskill.GetComponent<Boss_Skillinfo>().pos = pos;
+            randomskill.GetComponent<Boss_Skillinfo>().target = player;
+            randomskill.GetComponent<Boss_Skillinfo>().pos = pos[i];
             randomskill.GetComponent<Boss_Skillinfo>().phase1 = phase_01;
         }
+        
     }
 
     public void RandomShot01(Transform pos)

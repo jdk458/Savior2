@@ -10,7 +10,6 @@ public class Boss_Hpmarble : MonoBehaviour
     public Transform pos2;
     public Transform pos3;
     public Transform pos4;
-    public Transform pos5;
 
     [Header("구슬 생성 최대 갯수")]
     public int max_num;
@@ -25,7 +24,6 @@ public class Boss_Hpmarble : MonoBehaviour
     [HideInInspector] public bool place2;
     [HideInInspector] public bool place3;
     [HideInInspector] public bool place4;
-    [HideInInspector] public bool place5;
 
     [Header("플레이어")]
     public Transform player;
@@ -52,7 +50,7 @@ public class Boss_Hpmarble : MonoBehaviour
 
         hp_marble = ObjectPoolingManager.instance.GetQueue(marble_type);
         hp_marble.GetComponent<Item>().player = player;
-        int randnum = Random.Range(0, 5);
+        int randnum = Random.Range(0, 4);
         if (marble_num < max_num)
         {
             switch (randnum)
@@ -90,15 +88,6 @@ public class Boss_Hpmarble : MonoBehaviour
                         hp_marble.transform.position = pos4.position;
                         hp_marble.GetComponent<Hp_Recovery>().placenum = 4;
                         place4 = true;
-                        marble_num++;
-                    }
-                    break;
-                case 4:
-                    if (!place5)
-                    {
-                        hp_marble.transform.position = pos5.position;
-                        hp_marble.GetComponent<Hp_Recovery>().placenum = 5;
-                        place5 = true;
                         marble_num++;
                     }
                     break;

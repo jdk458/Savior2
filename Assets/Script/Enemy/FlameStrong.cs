@@ -10,15 +10,19 @@ public class FlameStrong : MonoBehaviour
     {
         skeletonAnimation = this.GetComponent<SkeletonAnimation>();
         string[] name = { "1_1", "1_2", "1_3" };
+        int[] time = { 0, 2, 0 };
         skeletonAnimation.skeleton.SetSkin("1");
-        StartCoroutine(SetAniCoroutine(name));
+        StartCoroutine(SetAniCoroutine(name, time));
     }
-    IEnumerator SetAniCoroutine(string[] name)
+    IEnumerator SetAniCoroutine(string[] name, int[] time)
     {
         for(int i = 0; i<name.Length; i++)
         {
-            skeletonAnimation.AnimationState.SetAnimation(0, name[i], false);
-            yield return new WaitForSeconds(0f);
+            if (i == 1)
+                skeletonAnimation.AnimationState.SetAnimation(0, name[i], true);
+            else
+                skeletonAnimation.AnimationState.SetAnimation(0, name[i], false);
+            yield return new WaitForSeconds(time[i]);
         }
     }
 }
