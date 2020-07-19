@@ -1472,7 +1472,6 @@ GameObject:
   - component: {fileID: 210543496}
   - component: {fileID: 210543495}
   - component: {fileID: 210543494}
-  - component: {fileID: 210543493}
   m_Layer: 5
   m_Name: "\uBC30\uACBD\uC2A4\uD30C\uC778\uCE94\uBC84\uC2A4"
   m_TagString: Untagged
@@ -1480,18 +1479,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &210543493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 210543492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e22631dc3b6fe644fa3d7785fb920968, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &210543494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9592,7 +9579,6 @@ GameObject:
   - component: {fileID: 1489732678}
   - component: {fileID: 1489732677}
   - component: {fileID: 1489732681}
-  - component: {fileID: 1489732682}
   m_Layer: 5
   m_Name: "\uBC84\uD2BC\uBC0F \uD328\uB110"
   m_TagString: Untagged
@@ -9699,18 +9685,6 @@ MonoBehaviour:
   research_pannel: {fileID: 2021134976}
   option_pannel: {fileID: 1090830388}
   Cradit_pannel: {fileID: 1778367371}
---- !u!114 &1489732682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1489732676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e22631dc3b6fe644fa3d7785fb920968, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1492355343
 GameObject:
   m_ObjectHideFlags: 0

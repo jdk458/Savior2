@@ -37,7 +37,6 @@ public class UserInfoManager : MonoBehaviour
             point_research = bool.Parse(PlayerPrefs.GetString("point_research"));
         }
 
-        Debug.Log(atk_research);
     }
 
     private void OnApplicationQuit()

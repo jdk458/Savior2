@@ -13,7 +13,7 @@ public class Research : MonoBehaviour
     [Header("설명")] public GameObject explanation;
     public ResearchManager researchManager;
 
-    public void Start()
+    void OnEnable()
     {
         string name = gameObject.name;
         switch (name)
@@ -21,10 +21,13 @@ public class Research : MonoBehaviour
             case "최대체력":
                 if (GameManager.instance.userinfo.hp_research)
                 {
+                   
                     for (int i = 0; i < fill_image.Length; i++)
                     {
                         fill_image[i].fillAmount = 1;
                     }
+                    this.gameObject.GetComponent<Image>().fillAmount = 1;
+                    circle_flag = true;
                 }
                 break;
             case "공격력":
@@ -33,7 +36,11 @@ public class Research : MonoBehaviour
                     for (int i = 0; i < fill_image.Length; i++)
                     {
                         fill_image[i].fillAmount = 1;
+
                     }
+                    if_fill_image.GetComponent<Image>().fillAmount = 1;
+                    this.gameObject.GetComponent<Image>().fillAmount = 1;
+                    circle_flag = true;
                 }
                 break;
             case "공격속도":
@@ -43,6 +50,9 @@ public class Research : MonoBehaviour
                     {
                         fill_image[i].fillAmount = 1;
                     }
+                    if_fill_image.GetComponent<Image>().fillAmount = 1;
+                    this.gameObject.GetComponent<Image>().fillAmount = 1;
+                    circle_flag = true;
                 }
                 break;
             case "이동속도":
@@ -52,6 +62,9 @@ public class Research : MonoBehaviour
                     {
                         fill_image[i].fillAmount = 1;
                     }
+                    if_fill_image.GetComponent<Image>().fillAmount = 1;
+                    this.gameObject.GetComponent<Image>().fillAmount = 1;
+                    circle_flag = true;
                 }
                 break;
             case "아이템":
@@ -61,6 +74,9 @@ public class Research : MonoBehaviour
                     {
                         fill_image[i].fillAmount = 1;
                     }
+                    if_fill_image.GetComponent<Image>().fillAmount = 1;
+                    this.gameObject.GetComponent<Image>().fillAmount = 1;
+                    circle_flag = true;
                 }
                 break;
             case "방어력":
@@ -70,6 +86,9 @@ public class Research : MonoBehaviour
                     {
                         fill_image[i].fillAmount = 1;
                     }
+                    if_fill_image.GetComponent<Image>().fillAmount = 1;
+                    this.gameObject.GetComponent<Image>().fillAmount = 1;
+                    circle_flag = true;
                 }
                 break;
             case "체력회복":
@@ -79,6 +98,9 @@ public class Research : MonoBehaviour
                     {
                         fill_image[i].fillAmount = 1;
                     }
+                    if_fill_image.GetComponent<Image>().fillAmount = 1;
+                    this.gameObject.GetComponent<Image>().fillAmount = 1;
+                    circle_flag = true;
                 }
                 break;
             case "스킬데미지":
@@ -88,6 +110,9 @@ public class Research : MonoBehaviour
                     {
                         fill_image[i].fillAmount = 1;
                     }
+                    if_fill_image.GetComponent<Image>().fillAmount = 1;
+                    this.gameObject.GetComponent<Image>().fillAmount = 1;
+                    circle_flag = true;
                 }
                 break;
             case "경험치":
@@ -97,6 +122,9 @@ public class Research : MonoBehaviour
                     {
                         fill_image[i].fillAmount = 1;
                     }
+                    if_fill_image.GetComponent<Image>().fillAmount = 1;
+                    this.gameObject.GetComponent<Image>().fillAmount = 1;
+                    circle_flag = true;
                 }
                 break;
             case "포인트":
@@ -106,9 +134,13 @@ public class Research : MonoBehaviour
                     {
                         fill_image[i].fillAmount = 1;
                     }
+                    if_fill_image.GetComponent<Image>().fillAmount = 1;
+                    this.gameObject.GetComponent<Image>().fillAmount = 1;
+                    circle_flag = true;
                 }
                 break;
         }
+        researchManager.CheckFillAmount();
     }
 
 

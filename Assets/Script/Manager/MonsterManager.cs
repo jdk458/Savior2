@@ -13,7 +13,7 @@ public class MonsterManager : MonoBehaviour
         public MonsterType monsterType;
         public int hp;
         public int atk;
-        public int def;
+        public float def;
         public float speed;
         public int exp;
         public int point;
@@ -48,7 +48,7 @@ public class MonsterManager : MonoBehaviour
             MonsterList[i].monsterType = (MonsterType)Enum.Parse(typeof(MonsterType), monsterInfo[3]);
             MonsterList[i].hp = int.Parse(monsterInfo[4]);
             MonsterList[i].atk = int.Parse(monsterInfo[5]);
-            MonsterList[i].def = int.Parse(monsterInfo[6]);
+            MonsterList[i].def = float.Parse(monsterInfo[6]);
             MonsterList[i].speed = float.Parse(monsterInfo[7]);
             MonsterList[i].exp = int.Parse(monsterInfo[8]);
             MonsterList[i].point = int.Parse(monsterInfo[9]);
