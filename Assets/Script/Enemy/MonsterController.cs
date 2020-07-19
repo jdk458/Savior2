@@ -14,7 +14,7 @@ public class MonsterController : MonoBehaviour
     int atk;
     int hp; int current_hp;
     float speed;
-    int def;
+    float def;
     int exp;
 
     [Header("플레이어 정보")]
@@ -105,11 +105,11 @@ public class MonsterController : MonoBehaviour
 
         GameObject damage_obj = ObjectPoolingManager.instance.GetQueue(ObjectKind.nomal_damage);
         damage_obj.transform.position = this.transform.position;
-        damage_obj.GetComponent<Damage>().DamageSet(damage - def);
+        damage_obj.GetComponent<Damage>().DamageSet((int)(damage - def));
 
         if (damage - def < 0)
             current_hp -= 1;
-        else current_hp -= (damage-def);
+        else current_hp -= ((int)(damage -def));
 
         if (current_hp <= 0)
         {

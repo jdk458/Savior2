@@ -81,7 +81,7 @@ public class Boss : MonoBehaviour
     int atk;
     int hp;
     float speed;
-    int def;
+    float def;
 
     string phase_num;
 

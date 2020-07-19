@@ -19,6 +19,8 @@ public class EnemyManager : MonoBehaviour
 
     int currentStage;
 
+
+
     private void Start()
     {
         currentStage = 1;
@@ -35,6 +37,22 @@ public class EnemyManager : MonoBehaviour
                 return;
             }
         }
+
+        // 플레이어 주위 150m 이내에 몬스터수 50마리 이상일경우 반환 
+        RaycastHit2D[] hit = Physics2D.CircleCastAll(player_transform.position, 150, Vector2.zero);
+        int enemyCount = 0;
+        for (int i = 0; i < hit.Length; i++)
+        {
+            if (hit[i] && hit[i].transform.tag == "Enemy")
+            {
+                enemyCount++;
+            }
+        }
+        if (enemyCount > 50)
+        {
+            return;
+        }
+       
 
         MonsterType monsterType = MonsterType.약한객체;
         int random = Random.RandomRange(0, 100);
@@ -132,7 +150,8 @@ public class EnemyManager : MonoBehaviour
         int rand_pos_num = Random.RandomRange(0, enemy_spawn.childCount);
         enemy_obj.transform.position = enemy_spawn.GetChild(rand_pos_num).transform.position;
 
-        if(!bossstage)
+
+        if (!bossstage)
             Invoke("Spawn", spawn_time);
     }
 

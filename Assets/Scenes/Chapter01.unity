@@ -46062,7 +46062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e10c9fb0f7edd498ec5855e3f4b5d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 100
+  time: 300
   remainTime: 0
   playTime: 0
 --- !u!114 &1730362285
